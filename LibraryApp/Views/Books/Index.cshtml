@@ -4,62 +4,41 @@
     ViewData["Title"] = "Index";
 }
 
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/bookview.css")" /> 
+}
+
 <h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pages)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReleaseDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FinishedReading)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pages)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FinishedReading)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+
+@foreach (var item in Model)
+{
+    <div class="book-container">
+        <p>
+            <b>@Html.DisplayNameFor(model => model.Title)</b>: @Html.DisplayFor(modelItem => item.Title)
+        </p>
+        <p>
+            <b>@Html.DisplayNameFor(model => model.Author)</b>: @Html.DisplayFor(modelItem => item.Author)
+        </p>
+        <p>
+            <b>@Html.DisplayNameFor(model => model.Genre)</b>: @Html.DisplayFor(modelItem => item.Genre)
+        </p>
+        <p>
+            <b>@Html.DisplayNameFor(model => model.Pages)</b>: @Html.DisplayFor(modelItem => item.Pages)
+        </p>
+        <p>
+            <b>@Html.DisplayNameFor(model => model.ReleaseDate)</b>: @Html.DisplayFor(modelItem => item.ReleaseDate)
+        </p>
+        <p>
+            <b>@Html.DisplayNameFor(model => model.FinishedReading)</b>: @Html.DisplayFor(modelItem => item.FinishedReading)
+        </p>
+        <div class="book-crud-container">
+            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+        </div>
+    </div>
 }
-    </tbody>
-</table>

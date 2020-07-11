@@ -1,0 +1,16 @@
+﻿body {
+    background-color: white;
+}
+
+.book-container {
+    background-color: #F8F8FF;
+    margin-bottom: 5%;
+}
+
+.book-crud-container {
+    padding-bottom: 1%;
+}
+
+p {
+    font-size: 22px;
+}
